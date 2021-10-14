@@ -1,0 +1,225 @@
+﻿@model CreatePrisonerDto
+@{
+    ViewData["Title"] = "Remanded Inmate detail";
+    Layout = "~/Views/Shared/_FormsLayout.cshtml";
+}
+
+
+<div class="main-container" id="container">
+
+    <div class="overlay"></div>
+
+    <partial name="_MainNav" />
+    <div class="container">
+        <div class="">
+            <div class="Passport-profile">
+                <div class="Passport-image">
+                    @*<img src="@Model.inMate.PassportURL" />*@
+                </div>
+                <div class="Passport-description">
+                    <h4>@Model.inMate.FirstName  @Model.inMate.LastName</h4>
+                </div>
+            </div>
+            <div class="row" style="padding-top:3rem;">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Inmate Name</h5>
+                            <p class="card-text" style="text-transform: uppercase;"><b>@Model.inMate.LastName</b> @Model.inMate.OtherName @Model.inMate.FirstName</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Inmate's Gender</h5>
+                            <p class="card-text">@Model.inMate.Gender</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date of Birth</h5>
+                            <p class="card-text" style="text-transform: uppercase;">@Model.inMate.DateOfBirth</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date Convicted</h5>
+                            <p class="card-text" style="text-transform: uppercase;">@Model.inMate.DateConvicted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date To Complete Jail Time</h5>
+                            <p class="card-text" style="text-transform: uppercase;">@Model.inMate.ExpectedJailTerm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Offence</h5>
+                            <p class="card-text" style="text-transform: uppercase;">@Model.inMate.Offence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="flHorizontalForm" class="col-lg-12 layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Sentence Statement</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        @Model.inMate.Sentence
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="flBiometricForm" class="col-lg-12 layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header" style="padding-bottom:1rem;">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Biometric Information</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Height</h5>
+                                    <p class="card-text" style="text-transform: uppercase;">@Model.inMate.Height CM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Weight</h5>
+                                    <p class="card-text" style="text-transform: uppercase;">@Model.inMate.Weight CM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Color Of Eye</h5>
+                                    <p class="card-text" style="text-transform: uppercase;">@Model.inMate.ColorOfEye</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="flRegistrationForm" class="col-lg-12 layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header" style="padding-bottom:1rem;>
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Other Information</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Health Conditions</h5>
+                                    <p class="card-text" style="text-transform: uppercase;">@Model.inMate.HealthConditions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Emergency Contact</h5>
+                                    <p class="card-text" style="text-transform: uppercase;">@Model.inMate.EmergencyContact</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Description</h5>
+                                <p class="card-text" style="text-transform: uppercase;">@Model.inMate.Description</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section JsScript{
+    <script src="~/js/addPrisoner.js"></script>
+    <script src="~/js/toastr.js"></script>
+
+    <style>
+
+        .Passport-profile {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-areas: "image" "text";
+            border-radius: 10px;
+            background: #EFEFEF;
+            overflow: hidden;
+            padding-top: 2rem;
+            background-color: firebrick;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            margin-top: 2rem;
+        }
+
+        .Passport-image {
+            grid-area: image;
+            background-size: cover;
+        }
+
+            .Passport-image img {
+                width: 100%;
+            }
+
+        .Passport-description {
+            grid-area: text;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .Passport-profile h4 {
+            font-size: 18px;
+            padding-top: 15px;
+        }
+
+        .Passport-description h4 {
+            color: white;
+            font-family: AvenirLTProRoman;
+            font-weight: 400;
+            font-size: 50px;
+        }
+    </style>
+}

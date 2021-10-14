@@ -1,0 +1,8 @@
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\bin\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.deps.json
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\bin\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.dll
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\bin\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.pdb
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\obj\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.AssemblyInfoInputs.cache
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\obj\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.AssemblyInfo.cs
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\obj\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\obj\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.dll
+C:\Users\DELL\Source\Repos\PrisonManagementSystem\EmailService\obj\Debug\netcoreapp3.1\PrisonManagementSystem.EmailService.pdb

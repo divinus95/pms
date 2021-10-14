@@ -1,0 +1,155 @@
+﻿@model OfficersInfoViewModel
+@{
+    ViewData["Title"] = "Register Visitor";
+    Layout = "_FormsLayout";
+}
+
+
+<div class="main-container" id="container">
+
+    <div class="overlay"></div>
+    <div class="search-overlay"></div>
+
+    <!--  BEGIN TOPBAR  -->
+    <partial name="_MainNav" />
+    <!--  END TOPBAR  -->
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="container">
+            <div class="container">
+
+                <div id="navSection" data-spy="affix" class="nav  sidenav">
+                    <div class="sidenav-content">
+                        <a href="#flStackForm" class="active nav-link">Basic Information</a>
+                        <a href="#flContackForm" class="nav-link">Contact Information</a>
+
+                    </div>
+                </div>
+
+                <form asp-controller="Admin" asp-action="AddOfficer" method="post" enctype="multipart/form-data" id="OfficerForm">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div id="flStackForm" class="col-lg-12 layout-spacing layout-top-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Basic Information</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="form-group"></div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.RankId" class="control-label"></label>
+                                        <select class="form-control visitor-matcher" asp-for="@Model.OfficerDto.RankId" id="rRank">
+                                            <option value=''>-- Select Classification --</option>
+                                            @foreach (var officer in Model.OfficerRanks)
+                                            {
+                                                <option value='@officer.RankId'>@officer.Title </option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.FirstName" class="control-label"></label>
+                                        <input asp-for="@Model.OfficerDto.FirstName" class="form-control" name="FirstName" id="rFirstName" placeholder="John" type="text" validationMessage="Add First Name" required autocomplete="off" />
+                                        <span asp-validation-for="@Model.OfficerDto.FirstName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.LastName" class="control-label"></label>
+                                        <input asp-for="@Model.OfficerDto.LastName" class="form-control" name="LastName" id="rLastName" placeholder="Doe" type="text" validationMessage="Add Last Name " required autocomplete="off" />
+                                        <span asp-validation-for="@Model.OfficerDto.LastName" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label for="gender">Gender</label>
+                                        <div style="margin-top: 1px; font-size: 12px;">
+                                            <input type="radio" id="male" name="gender" value="Male" checked="checked">
+                                            <label for="male">Male</label>
+                                            <input type="radio" id="female" name="gender" value="Female">
+                                            <label for="female">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="flContackForm" class="col-lg-12 layout-spacing layout-top-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Contact Information</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="form-group"></div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.ResidentialAddress" class="control-label"></label>
+                                        <input asp-for="@Model.OfficerDto.ResidentialAddress" class="form-control" name="ResidentialAddress" id="rResidentialAddress" placeholder="House No. 232 West Lane, Teshie Tuibleoo" type="text" validationMessage="Add Birth Day" required autocomplete="off" />
+                                        <span asp-validation-for="@Model.OfficerDto.ResidentialAddress" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.Email" class="control-label"></label>
+                                        <input asp-for="@Model.OfficerDto.Email" class="form-control" name="Email" id="rEmail" placeholder="kofibanku@outlook.com" type="text" validationMessage="Add Birth Day" required autocomplete="off" />
+                                        <span asp-validation-for="@Model.OfficerDto.Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.Phone" class="control-label"></label>
+                                        <input asp-for="@Model.OfficerDto.Phone" class="form-control" name="Phone" id="rPhone" placeholder="+233241369871" type="text" />
+                                        <span asp-validation-for="@Model.OfficerDto.Phone" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.OfficerDto.EmergencyContact" class="control-label"></label>
+                                        <input asp-for="@Model.OfficerDto.EmergencyContact" class="form-control" name="EmergencyContact" id="rEmergencyContact" placeholder="+233241369871" type="text" />
+                                        <span asp-validation-for="@Model.OfficerDto.EmergencyContact" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" id="submitButton">Add Prisoner</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section JsScript{
+    <script src="~/js/toastr.js"></script>
+    <script src="~/js/AddOfficer.js"></script>
+    <script src="~/js/select2-min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script type="text/javascript">
+        function matchCustom(params, data) {
+            // If there are no search terms, return all of the data
+            if ($.trim(params.term) === '') {
+                return data;
+            }
+
+            // Do not display the item if there is no 'text' property
+            if (typeof data.text === 'undefined') {
+                return null;
+            }
+
+            // `params.term` should be the term that is used for searching
+            // `data.text` is the text that is displayed for the data object
+            if (data.text.indexOf(params.term) > -1) {
+                var modifiedData = $.extend({}, data, true);
+                modifiedData.text += ' (matched)';
+
+                // You can return modified objects from here
+                // This includes matching the `children` how you want in nested data sets
+                return modifiedData;
+            }
+
+            // Return `null` if the term should not be displayed
+            return null;
+        }
+
+        $(".visitor-matcher").select2({
+            matcher: matchCustom
+        });
+    </script>
+}

@@ -1,0 +1,221 @@
+﻿@model CreatePrisonerDto
+@{
+    ViewData["Title"] = "Register Prisoner";
+    Layout = "~/Views/Shared/_FormsLayout.cshtml";
+}
+
+
+<div class="main-container" id="container">
+
+    <div class="overlay"></div>
+    <div class="search-overlay"></div>
+
+    <!--  BEGIN TOPBAR  -->
+    <partial name="_MainNav" />
+    <!--  END TOPBAR  -->
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="container">
+            <div class="container">
+
+                <div id="navSection" data-spy="affix" class="nav  sidenav">
+                    <div class="sidenav-content">
+                        <a href="#flStackForm" class="active nav-link">Basic Information</a>
+                        <a href="#flHorizontalForm" class="nav-link">Crime Information</a>
+                        <a href="#flRegistrationForm" class="nav-link">Other Information</a>
+                        <a href="#flBiometricForm" class="nav-link">Biometric Information</a>
+
+                    </div>
+                </div>
+
+                <form asp-controller="Prison" asp-action="RegisterPrisoner" method="post" enctype="multipart/form-data" id="prisonerForm" name="prisonerForm">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div id="flStackForm" class="col-lg-12 layout-spacing layout-top-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Basic Information</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="form-group"></div>
+
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.PassportPicture" class="control-label"></label>@*custom-file-input*@
+                                        <input asp-for="@Model.PrisonerDtos.PassportPicture" class="form-control-file" name="rPassportPicture" id="rPassportPicture" validationMessage="Add Passport" required autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.PassportPicture" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.FirstName" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.FirstName" class="form-control" name="rFirstName" id="rFirstName" placeholder="First Name *" type="text" validationMessage="Add First Name" required autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.FirstName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.LastName" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.LastName" class="form-control" name="rLastName" id="rLastName" placeholder="Last Name *" type="text" validationMessage="Add Last Name " required autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.LastName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.OtherName" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.OtherName" class="form-control" name="rOtherName" id="rOtherName" placeholder="Other Name" type="text" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.OtherName" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label for="gender">Gender</label>
+                                        <div style="margin-top: 1px; font-size: 12px;">
+                                            <input type="radio" id="male" name="gender" value="MALE" checked="checked">
+                                            <label for="male">Male</label>
+                                            <input type="radio" id="female" name="gender" value="FEMALE">
+                                            <label for="female">Female</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.DateOfBirth" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.DateOfBirth" class="form-control" name="rDOB" id="rDOB" placeholder="Date Of Birth *" type="date" validationMessage="Add Birth Day" required autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.DateOfBirth" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="flHorizontalForm" class="col-lg-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Crime Information</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.DateConvicted" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.DateConvicted" class="form-control" name="rDateConvicted" id="rDateConvicted" placeholder="Date Convicted *" type="date" validationMessage="Add Date Convicted" autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.DateConvicted" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.ExpectedJailTerm" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.ExpectedJailTerm" class="form-control" name="rExpectedJailTerm" id="rExpectedJailTerm" placeholder="Expected Jail Term *" type="date" validationMessage="Add Expected Jail Term" autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.ExpectedJailTerm" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.Offence" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.Offence" class="form-control" name="rOffence" id="rOffence" placeholder="Offence *" type="text" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.Offence" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.Sentence" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.Sentence" class="form-control" name="rSentence" id="rSentence" placeholder="Sentence *" type="text" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.Sentence" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="flBiometricForm" class="col-lg-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Biometric Information</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.Height" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.Height" class="form-control" name="Height" id="rHeight" placeholder="171" type="text" validationMessage="Add add height" autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.Height" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.Weight" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.Weight" class="form-control" name="Weight" id="rWeight" placeholder="45" type="text" validationMessage="Add weight" autocomplete="off" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.Weight" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label asp-for="@Model.PrisonerDtos.ColorOfEye" class="control-label"></label>
+                                        <input asp-for="@Model.PrisonerDtos.ColorOfEye" class="form-control" name="ColorOfEye" id="rColorOfEye" placeholder="Brown" type="text" />
+                                        <span asp-validation-for="@Model.PrisonerDtos.ColorOfEye" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div id="flRegistrationForm" class="col-lg-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Other Information</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="code-section-container">
+                                        <div class="form-group mb-4">
+                                            <label asp-for="@Model.PrisonerDtos.Description" class="control-label"></label>
+                                            <input asp-for="@Model.PrisonerDtos.Description" class="form-control" name="rDetails" id="rDetails" placeholder="Other Descriptions *" type="text" />
+                                            <span asp-validation-for="@Model.PrisonerDtos.Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label asp-for="@Model.PrisonerDtos.EmergencyContact" class="control-label"></label>
+                                            <input asp-for="@Model.PrisonerDtos.EmergencyContact" class="form-control" name="rEmergencyContact" id="rEmergencyContact" placeholder="Emergency Contact *" type="text" />
+                                            <span asp-validation-for="@Model.PrisonerDtos.EmergencyContact" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label asp-for="@Model.PrisonerDtos.HealthConditions" class="control-label"></label>
+                                            <input asp-for="@Model.PrisonerDtos.HealthConditions" class="form-control" name="rHealthConditions" id="rHealthConditions" placeholder="Health Conditions" type="text" />
+                                            <span asp-validation-for="@Model.PrisonerDtos.HealthConditions" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group mb-4">
+                                            <label for="rCell" class="control-label"></label>
+                                            <select class="form-control" asp-for="@Model.PrisonerDtos.CellId" id="rCell">
+                                                <option value=''>-- Select Cell Number --</option>
+                                                @foreach (var cell in Model.Cells)
+                                                {
+                                                    <option value='@cell.CellId'>@cell.CellName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label for="rClassify" class="control-label"></label>
+                                            <select class="form-control" asp-for="@Model.PrisonerDtos.PrisonerClassificationId" id="rClassify">
+                                                <option value=''>-- Select Classification --</option>
+                                                @foreach (var type in Model.Classifications)
+                                                {
+                                                    <option value='@type.PrisonerClassificationId'>@type.Classification</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-3" id="submitButton">Submit</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section JsScript{
+    <script src="~/js/addPrisoner.js"></script>
+    <script src="~/js/toastr.js"></script>
+    <script src="~/js/site.js"></script>
+}

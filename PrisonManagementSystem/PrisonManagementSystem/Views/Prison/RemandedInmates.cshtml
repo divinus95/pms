@@ -1,0 +1,62 @@
+﻿@model CreatePrisonerDto
+@{
+    ViewData["Title"] = "All Remanded Inmates";
+    Layout = "~/Views/Shared/_FormsLayout.cshtml";
+}
+
+<div class="main-container" id="container">
+
+    <div class="overlay"></div>
+    <div class="search-overlay"></div>
+    <partial name="_MainNav" />
+    <div class="container" style="background-color:azure; margin-top:3rem; padding-top: 2rem;">
+
+        <table id="remanded-inmates" class="display" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Date Of Birth</th>
+                    <th>Expected Jail Term</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in 
+                    Model.Remands)
+                {
+                    <tr>
+                        <td>@person.FirstName</td>
+                        <td>@person.LastName</td>
+                        <td>@person.Gender</td>
+                        <td>@person.DateOfBirth</td>
+                        <td>@person.ExpectedJailTerm</td>
+                        <td><a asp-action="RemandedInmatesInfo" asp-route-slug="@person.FirstName" target="_blank" class="btn btn-primary">Detail</a></td>
+                    </tr>
+
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Date Of Birth</th>
+                    <th>Expected Jail Term</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
+@section JsScripts{
+    <script src="~/js/site.js"></script>
+    <script src="~/lib/DataTable/Jquery-datatable.js"></script>
+    <script src="~/lib/DataTable/JQuery-dt-min.js"></script>
+    <script>
+        $(document).ready(function () { $('#remanded-inmates').DataTable({ "order": [[3, "desc"]] }); });
+    </script>
+}

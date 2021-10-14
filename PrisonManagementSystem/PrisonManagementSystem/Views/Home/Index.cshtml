@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_PrisonLayout";
+}
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+
+    <div class="overlay"></div>
+    <partial name="_MainNav" />
+
+    <!--  BEGIN CONTENT PART  -->
+    <div id="content" class="main-content">
+        <div class="layout-px-spacing">
+            <div class="layout-top-spacing">
+                <div style="display:grid; grid-template-columns: 3fr 5fr; grid-gap: 2rem">
+                    <div style="display:grid; grid-auto-columns: 1fr;">
+                        <div class="col-xl-10 col-lg-10 col-md-4 col-sm-4 col-10" style="justify-content: center; align-content: center; align-items: center">
+                            <div class="widget widget-one_hybrid widget-followers">
+                                <div class="widget-heading">
+                                    <div class="w-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    </div>
+                                    <p class="w-value">@ViewBag.All</p>
+                                    <h5 class="">Total InMates</h5>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="w-chart">
+                                        <div id="hybrid_followers"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" margin-left:10rem; display:flex; grid-template-rows: 1fr; flex-direction:row; gap: 2rem; justify-content:space-evenly; max-width: 10rem">
+                            <div class="col-xl-12 col-lg-12 col-md-4 col-sm-4 col-12">
+                                <div class="widget widget-one_hybrid widget-followers">
+                                    <div class="widget-heading">
+                                        <div class="w-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                        </div>
+                                        <p class="w-value">@ViewBag.Male</p>
+                                        <h5 class="">Total Male Inmates</h5>
+                                    </div>
+                                    <div class="widget-content">
+                                        <div class="w-chart">
+                                            <div id="hybrid_followers"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-4 col-sm-4 col-12">
+                                <div class="widget widget-one_hybrid widget-followers">
+                                    <div class="widget-heading">
+                                        <div class="w-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                        </div>
+                                        <p class="w-value">@ViewBag.Female</p>
+                                        <h5 class="">Total Female Inmates</h5>
+                                    </div>
+                                    <div class="widget-content">
+                                        <div class="w-chart">
+                                            <div id="hybrid_followers"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 col-md-3 col-sm-12 col-6" style="max-height: 450px !important">
+                        <div class="widget-four">
+                            <h5 class="">Inmates By Gender</h5>
+                            <div class="widget-content">
+                                <div class="vistorsBrowser">
+                                    <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
+                                        <canvas class="my-4 h-auto" id="genderStat" style="max-height: 300px !important"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-bottom: 2rem"></div>
+                <div style="display:flex">
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-8 layout-spacing">
+                        <div class="widget widget-chart-three">
+                            <div class="widget-heading">
+                                <canvas class="my-4 h-25" id="prisonerTypeStat"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-8 layout-spacing">
+                        <div class="widget widget-chart-three">
+                            <div class="widget-heading">
+                                <canvas class="my-4 h-25" id="prisonerTypeStat"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section MainFoot{
+    <script src="~/js/chart.js"></script>
+    <script src="~/js/Chart-Utils.js"></script>
+    <script src="~/js/site.js"></script>
+    <script type="text/javascript">
+           var male = @Html.Raw(Json.Serialize(ViewBag.Male));
+        var female = @Html.Raw(Json.Serialize(ViewBag.Female));
+
+    var gender = document.getElementById('genderStat').getContext('2d');
+        var genderStat = new Chart(gender, {
+            type: 'pie',
+            data: {
+                labels: ['Male Inmates', 'Female Inmates'],
+                datasets: [{
+                    label: 'Inmates',
+                    data: [male, female],
+                    backgroundColor: ["rgb(255, 76, 0)", "rgb(255, 165, 0)"]
+                }]
+            },
+            options: {
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+        var trial = @Html.Raw(Json.Serialize(ViewBag.Trial));
+        var remand = @Html.Raw(Json.Serialize(ViewBag.Remand));
+        var convict = @Html.Raw(Json.Serialize(ViewBag.Convicted));
+        var condemn = @Html.Raw(Json.Serialize(ViewBag.Condemned));
+
+        var crimeType = document.getElementById('prisonerTypeStat').getContext('2d');
+        var genderStat = new Chart(crimeType, {
+            type: 'doughnut',
+            data: {
+                labels: ['Trial', 'Remand', 'Convict', 'Condemned'],
+                datasets: [{
+                    label: 'Inmates',
+                    data: [trial, remand, convict, condemn],
+                    backgroundColor: ["rgb(255, 76, 0)", "rgb(255, 165, 0)", "rgb(249, 207, 20)", "rgb(61, 67, 81)"]
+                }]
+            },
+            options: {
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+
+    </script>
+}
+

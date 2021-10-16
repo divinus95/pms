@@ -3860,11 +3860,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj",
       "projectName": "PrisonManagementSystem.EmailService",
-      "projectPath": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj",
+      "projectPath": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\EmailService\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\EmailService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

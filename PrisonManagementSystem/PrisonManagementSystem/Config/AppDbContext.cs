@@ -4,7 +4,7 @@ using PrisonManagementSystem.Db_Models;
 
 namespace PrisonManagementSystem.Config
 {
-    public class AppDbContext: IdentityDbContext<User>
+    public class AppDbContext: DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
                   : base(options)
@@ -29,6 +29,7 @@ namespace PrisonManagementSystem.Config
      
         public DbSet<CareTaker> CareTaker { get; set; }
         public DbSet<Cell> Cell { get; set; }
+        public DbSet<User> User { get; set; }
         public DbSet<Officer> Officer { get; set; }
         public DbSet<OfficerRank> OfficerRank { get; set; }
         public DbSet<Prisoner> Prisoner { get; set; }

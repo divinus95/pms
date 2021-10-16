@@ -14407,6 +14407,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Account\\LoginSuccessful.cshtml",
+      "TargetPath": "Views\\Account\\LoginSuccessful.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -14422,8 +14427,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\wwwroot\\assets\\img\\Login.cshtml",
+      "TargetPath": "wwwroot\\assets\\img\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14447,6 +14452,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Admin\\SuccessRegistration.cshtml",
+      "TargetPath": "Views\\Admin\\SuccessRegistration.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Prison\\RemandedInmates.cshtml",
       "TargetPath": "Views\\Prison\\RemandedInmates.cshtml",
       "FileKind": "mvc"
@@ -14462,18 +14472,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Account\\Register.cshtml",
-      "TargetPath": "Views\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Account\\SuccessRegistration.cshtml",
-      "TargetPath": "Views\\Account\\SuccessRegistration.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14507,6 +14507,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Shared\\_User.cshtml",
+      "TargetPath": "Views\\Shared\\_User.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Admin\\AddOfficer.cshtml",
       "TargetPath": "Views\\Admin\\AddOfficer.cshtml",
       "FileKind": "mvc"
@@ -14519,6 +14524,11 @@
     {
       "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Visitor\\VisitingArrival.cshtml",
       "TargetPath": "Views\\Visitor\\VisitingArrival.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\Views\\Admin\\Register.cshtml",
+      "TargetPath": "Views\\Admin\\Register.cshtml",
       "FileKind": "mvc"
     },
     {

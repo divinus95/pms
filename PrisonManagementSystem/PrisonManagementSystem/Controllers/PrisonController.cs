@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ using static PrisonManagementSystem.Models.PrisonerViewModel;
 
 namespace PrisonManagementSystem.Controllers
 {
+    [Authorize]
     public class PrisonController : Controller
     {
         private readonly Logger _logger;

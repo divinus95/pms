@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace PrisonManagementSystem.Config
@@ -7,6 +8,10 @@ namespace PrisonManagementSystem.Config
 
     public static class EncryptionHelper
     {
+        public static string CalculateSha1(string text)
+        {
+            return AuthUtils.GetSHA1HashData(text);
+        }
         public static string EncryptID(long id)
         {
             try

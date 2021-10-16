@@ -6,9 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PrisonManagementSystem.Config;
-using PrisonManagementSystem.EmailService;
-using PrisonManagementSystem.EmailService.Implementation;
-using PrisonManagementSystem.EmailService.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,15 +25,14 @@ namespace PrisonManagementSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddRazorPages();
             services.ConfigureDependencyInjection();
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(EncryptionHelper.DecryptConnectionString((Configuration.GetConnectionString("DefaultDBConn")))));
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultDBConn")));
             services.Configure<LogDirectory>(Configuration.GetSection("LogDirectories"));
-            var emailConfig = Configuration
-                        .GetSection("EmailConfig")
-                        .Get<EmailConfig>();
-            services.AddSingleton(emailConfig);
-            services.AddScoped<IEmailSender, EmailSender>();
+            //var emailConfig = Configuration
+            //            .GetSection("EmailConfig")
+            //            .Get<EmailConfig>();
+            //services.AddSingleton(emailConfig);
+            //services.AddScoped<IEmailSender, EmailSender>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -63,7 +59,7 @@ namespace PrisonManagementSystem
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
                 //endpoints.MapRazorPages();
             });
         }

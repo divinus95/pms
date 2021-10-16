@@ -1,40 +1,64 @@
 ﻿@model UserDto.UserLoginModel
-
 @{
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
-                </label>
-            </div>
-            <div class="form-group">
-                <a asp-action="ForgotPassword">Forgot Password</a>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Log In" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="banner-up">
+    <div class="row banner">
+        <div class="col-md-4">
+            <form asp-action="Login">
+                <h4 style="color:white;">Login To Prison System</h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    @*<label asp-for="UserName" class="control-label"></label>*@
+                    <input asp-for="UserName" class="form-control" placeholder="Username" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="Password" class="control-label"></label>*@
+                    <input asp-for="Password" class="form-control" placeholder="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="RememberMe" style="font-weight:bold;" /> @Html.DisplayNameFor(model => model.RememberMe)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <a asp-action="ForgotPassword" style="font-weight:bold;">Forgot Password</a>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Log In" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <style>
+        .banner {
+            background-image: url(../assets/img/prison.jpg);
+            border-radius: 2rem;
+            /*background: rgba(255, 255, 0, 0.3);*/
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed !important;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
+
+        .banner-up {
+            background-color: transparent;
+        }
+    </style>
 }

@@ -68,3 +68,7 @@ $("#visitor-departure").click(function (e) {
 });
 
 //more
+$("#user-reg").click(function (e) {
+	e.preventDefault();
+	window.location = "/Admin/Register"
+});

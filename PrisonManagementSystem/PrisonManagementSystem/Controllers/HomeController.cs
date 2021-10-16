@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PrisonManagementSystem.Config;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace PrisonManagementSystem.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly Logger _logger;

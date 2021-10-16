@@ -18,6 +18,7 @@ namespace PrisonManagementSystem.Config
 
         readonly string dbConnString;
         readonly string dbSchema;
+        readonly IConfiguration _config;
         private List<NpgsqlParameter> Params { get; set; }
 
         public DbHelper(string connString)
@@ -25,13 +26,13 @@ namespace PrisonManagementSystem.Config
 
             dbConnString = connString;
         }
-        public DbHelper(IConfiguration configuration, Logger logger)
+        public DbHelper(IConfiguration config, Logger logger)
         {
-            IConfiguration _configuration = configuration;
+            _config = config;
             _logger = logger;
 
-            dbConnString = EncryptionHelper.DecryptConnectionString(_configuration.GetConnectionString("DefaultDBConn"));
-            string ServersDBDbSchema = _configuration.GetSection("AppSchemaSetting")["SchemaName"];
+            dbConnString = _config.GetConnectionString("DefaultDBConn");
+            string ServersDBDbSchema = _config.GetSection("AppSchemaSetting")["SchemaName"];
 
             dbSchema = string.IsNullOrWhiteSpace(ServersDBDbSchema) ? "public" : ServersDBDbSchema;
         }
@@ -178,6 +179,7 @@ namespace PrisonManagementSystem.Config
                 return new List<Cell>();
             }
         }
+
 
         public async Task<List<PrisonerClassification>> GetAllCrimeClass()
         {
@@ -330,7 +332,7 @@ namespace PrisonManagementSystem.Config
         public async Task<int> UpdateCellStatus(int cellId)
         {
             try
-            {               
+            {
                 using (var conn = new NpgsqlConnection(dbConnString))
                 {
                     int result;
@@ -478,7 +480,7 @@ namespace PrisonManagementSystem.Config
                         {
                             VisitingId = reader.GetFieldValue<int>(0),
                             ArrivalTime = reader.GetFieldValue<DateTime>(1),
-                            VisitorId = reader.GetFieldValue<int>(2)                        
+                            VisitorId = reader.GetFieldValue<int>(2)
                         });
                     }
                     conn.Close();
@@ -546,7 +548,7 @@ namespace PrisonManagementSystem.Config
                         {
                             VisitorId = reader.GetFieldValue<int>(0),
                             FirstName = reader.GetFieldValue<string>(1),
-                            LastName = reader.GetFieldValue<string>(2)                            
+                            LastName = reader.GetFieldValue<string>(2)
                         });
                     }
                     conn.Close();
@@ -558,6 +560,40 @@ namespace PrisonManagementSystem.Config
             {
                 _logger.logError(ex);
                 return new List<Visitor>();
+            }
+        }
+        public async Task<List<User>> GetAllUsers()
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(dbConnString))
+                {
+                    var results = new List<User>();
+
+                    var cmd = new NpgsqlCommand($"{dbSchema}.\"GetAllUsers\"", conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    conn.Open(); var reader = await cmd.ExecuteReaderAsync();
+                    while (reader.Read())
+                    {
+                        results.Add(new User
+                        {
+                            UserId = reader.GetFieldValue<int>(0),
+                            Username = reader.GetFieldValue<string>(1),
+                            Password = reader.GetFieldValue<string>(2),
+                        });
+                    }
+                    conn.Close();
+                    conn.Dispose();
+                    return results;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.logError(ex);
+                return new List<User>();
             }
         }
     }

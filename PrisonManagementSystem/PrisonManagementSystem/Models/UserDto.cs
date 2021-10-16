@@ -39,11 +39,12 @@ namespace PrisonManagementSystem.Models
             [DisplayName("Last Name")]
             public string LastName { get; set; }
             [DisplayName("Username")]
-            public string UserName { get; set; }
+            public string Username { get; set; }
        
             [DataType(DataType.Password)]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+            public bool Active { get; set; }
         }
 
         public class ForgotPasswordDto

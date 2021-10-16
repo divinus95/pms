@@ -18,6 +18,23 @@ BEGIN
 END
 $BODY$;
 
+CREATE OR REPLACE FUNCTION public."GetAllUsers"(
+	)
+    RETURNS TABLE("UserId" integer, "Username" text, "Password" text) 
+    LANGUAGE 'plpgsql'
+
+    COST 100
+    VOLATILE 
+    ROWS 1000
+    
+AS $BODY$
+BEGIN
+    RETURN QUERY
+    SELECT us."UserId", us."Username", us."Password"
+    FROM public."User" us
+	  where us."Active" = true;
+END
+$BODY$;
 
 
 CREATE OR REPLACE FUNCTION public."GetAllCells"(

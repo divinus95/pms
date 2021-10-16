@@ -9684,11 +9684,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\PrisonManagementSystem\\PrisonManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\PrisonManagementSystem.csproj",
       "projectName": "PrisonManagementSystem",
-      "projectPath": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\PrisonManagementSystem\\PrisonManagementSystem.csproj",
+      "projectPath": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\PrisonManagementSystem.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\PrisonManagementSystem\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\PrisonManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -9709,8 +9709,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Source\\Repos\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj"
+            "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Source\\Repos\\pms\\PrisonManagementSystem\\EmailService\\PrisonManagementSystem.EmailService.csproj"
             }
           }
         }

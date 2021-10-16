@@ -16,6 +16,7 @@ namespace PrisonManagementSystem.Config
             CreateMap<Visitor, CreateVisitorDto>().ReverseMap();
             CreateMap<OfficerForm, OfficersInfoViewModel>().ReverseMap();
             CreateMap<Duty, CreateDutyViewModel>().ReverseMap();
+            CreateMap<User, UserRegistrationModel>().ReverseMap();
            
          
         }
